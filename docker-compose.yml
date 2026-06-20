@@ -1,0 +1,5 @@
+services:
+  bookings-monitor:
+    build: .
+    restart: unless-stopped
+    env_file: .env
