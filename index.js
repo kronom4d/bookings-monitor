@@ -77,6 +77,7 @@ async function sendNtfyLogging(title, message, priority = 'default') {
 
 async function scrapeCalendar() {
   let browser;
+  found = false;
   try {
     counter++;
     console.log(`Scrape attempt #${counter} — ${new Date().toISOString()}`);
@@ -158,7 +159,7 @@ async function changeMonth(page) {
 
 async function checkAvailability(allDates) {
   const available = allDates.filter(
-    (d) => d.ariaLabel && d.ariaDisabled === 'false'
+    (d) => d.ariaLabel && d.ariaDisabled !== 'true'
   );
 
   if (available.length > 0) {
